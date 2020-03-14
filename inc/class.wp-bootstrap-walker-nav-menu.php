@@ -336,7 +336,7 @@ class WP_Bootstrap_Walker_Nav_Menu extends Walker_Nav_Menu {
    *
    * @param string $class CSS class applied to a menu item's `<li>` element.
    */
-  private function _has_button_class( $class ) {
+  protected function _has_button_class( $class ) {
     return preg_match( '/btn/', $class );
   }
 
@@ -345,7 +345,7 @@ class WP_Bootstrap_Walker_Nav_Menu extends Walker_Nav_Menu {
    *
    * @param string $class CSS class applied to a menu item's `<li>` element.
    */
-  private function _has_children_class( $class ) {
+  protected function _has_children_class( $class ) {
     return preg_match( '/menu-item-has-children/', $class );
   }
 
@@ -354,7 +354,7 @@ class WP_Bootstrap_Walker_Nav_Menu extends Walker_Nav_Menu {
    *
    * @param string $class CSS class applied to a menu item's `<li>` element.
    */
-  private function _has_icon_class( $class ) {
+  protected function _has_icon_class( $class ) {
     return preg_match( '/icon-/', $class );
   }
 
@@ -363,7 +363,7 @@ class WP_Bootstrap_Walker_Nav_Menu extends Walker_Nav_Menu {
    *
    * @param string $class CSS class applied to a menu item's `<li>` element.
    */
-  private function _has_javascript_class( $class ) {
+  protected function _has_javascript_class( $class ) {
     return preg_match( '/js-/', $class );
   }
 
@@ -372,7 +372,7 @@ class WP_Bootstrap_Walker_Nav_Menu extends Walker_Nav_Menu {
    *
    * @param string $class CSS class applied to a menu item's `<li>` element.
    */
-  private function _has_screen_reader_class( $class ) {
+  protected function _has_screen_reader_class( $class ) {
     return preg_match( '/screen-reader-text/', $class );
   }
 }

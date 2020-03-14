@@ -102,7 +102,7 @@ class WP_Bootstrap_Admin {
 	 *
 	 * Defines all the WordPress actions and filters used by this theme.
 	 */
-	private function _add_actions() {
+	protected function _add_actions() {
 		add_action( 'admin_init', array( $this, 'add_editor_styles' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_assets' ) );
 	}
@@ -112,7 +112,7 @@ class WP_Bootstrap_Admin {
 	 *
 	 * Defines all the WordPress filters and filters used by this theme.
 	 */
-	private function _add_filters() {
+	protected function _add_filters() {
 		add_filter( 'upload_mimes', array( $this, 'add_mime_types' ) );
 		add_filter( 'wp_update_attachment_metadata', array( $this, 'update_attachment_metadata' ), 10, 2 );
 	}
@@ -122,7 +122,7 @@ class WP_Bootstrap_Admin {
 	 *
 	 * Defines all the WordPress actions and filters we don't want.
 	 */
-	private function _remove_actions() {
+	protected function _remove_actions() {
 		remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
 		remove_action( 'admin_print_styles', 'print_emoji_styles' );
 	}
@@ -132,7 +132,7 @@ class WP_Bootstrap_Admin {
 	 *
 	 * Removes all the WordPress filters not required by this theme.
 	 */
-	private function _remove_filters() {
+	protected function _remove_filters() {
 		remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
 	}
 }

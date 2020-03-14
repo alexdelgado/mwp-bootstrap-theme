@@ -92,7 +92,7 @@ class WP_Bootstrap_Theme {
 	 *
 	 * Defines all the WordPress actions and filters used by this theme.
 	 */
-	private function _add_actions() {
+	protected function _add_actions() {
 		add_action( 'do_feed', array( $this, 'disable_feeds' ), 1 );
 		add_action( 'do_feed_rdf', array( $this, 'disable_feeds' ), 1 );
 		add_action( 'do_feed_rss', array( $this, 'disable_feeds' ), 1 );
@@ -109,7 +109,7 @@ class WP_Bootstrap_Theme {
 	 *
 	 * Defines all the WordPress actions and filters we don't want.
 	 */
-	private function _remove_actions() {
+	protected function _remove_actions() {
 		remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10 );
 		remove_action( 'wp_head', 'feed_links_extra', 3 );
 		remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
@@ -128,7 +128,7 @@ class WP_Bootstrap_Theme {
 	 *
 	 * Removes all the WordPress filters not required by this theme.
 	 */
-	private function _remove_filters() {
+	protected function _remove_filters() {
 		remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
 		remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
 	}
