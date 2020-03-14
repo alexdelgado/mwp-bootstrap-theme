@@ -7,6 +7,8 @@ const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 module.exports = {
   context: __dirname,
   entry: {
+    admin:  './src/scss/wp-admin.scss',
+    editor: './src/scss/wp-editor.scss',
     theme: ['./src/js/theme.js', './src/scss/theme.scss'],
   },
   output: {
