@@ -39,16 +39,16 @@ class WP_Bootstrap_Theme {
 	public function enqueue_assets() {
 		wp_enqueue_style(
 			'wp-bootstrap-theme',
-			get_template_directory_uri() .'/dist/theme.min.css',
+			get_template_directory_uri() .'/dist/js/theme.min.css',
 			array(),
-			filemtime( get_template_directory() . '/dist/theme.min.css' )
+			filemtime( get_template_directory() . '/dist/js/theme.min.css' )
 		);
 
 		wp_enqueue_script(
 			'wp-bootstrap-theme',
-			get_template_directory_uri() .'/dist/theme.min.js',
+			get_template_directory_uri() .'/dist/css/theme.min.js',
 			array(),
-			filemtime( get_template_directory() . '/dist/theme.min.js' ),
+			filemtime( get_template_directory() . '/dist/css/theme.min.js' ),
 			true
 		);
 	}

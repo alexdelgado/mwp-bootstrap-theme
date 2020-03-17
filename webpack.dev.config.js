@@ -1,21 +1,18 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
-const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 module.exports = {
-  context: __dirname,
+  mode: 'development',
   entry: {
     admin:  './src/scss/wp-admin.scss',
     editor: './src/scss/wp-editor.scss',
     theme: ['./src/js/theme.js', './src/scss/theme.scss'],
   },
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'dist/js'),
     filename: '[name].min.js'
   },
-  mode: 'development',
   devtool: 'source-map',
   module: {
     rules: [
@@ -31,19 +28,20 @@ module.exports = {
       },
       {
         test: /\.s?css$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader']
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
+      },
+      {
+        test: /\.(svg|eot|ttf|woff|woff2)?$/,
+        loader: 'url-loader',
       }
     ]
   },
   plugins: [
-    new MiniCssExtractPlugin({ filename: '[name].min.css' }),
+    new MiniCssExtractPlugin({ filename: '../css/[name].min.css' }),
     new BrowserSyncPlugin({
       files: '**/*.php',
       injectChanges: true,
-      proxy: 'http://wordpress.test'
+      proxy: 'http://one.wordpress.test'
     })
-  ],
-  optimization: {
-    minimizer: [new UglifyJSPlugin(), new OptimizeCssAssetsPlugin()]
-  }
+  ]
 };
