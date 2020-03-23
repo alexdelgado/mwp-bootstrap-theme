@@ -82,7 +82,7 @@ class WP_Bootstrap_Theme {
 
 		register_nav_menus(
 			array(
-				'primary' => __( 'Primary Navigation', '_starter' ),
+				'primary' => __( 'Primary Navigation', '_bootstrap' ),
 			)
 		);
 	}
