@@ -27,9 +27,9 @@ class WP_Bootstrap_Admin {
 
 		wp_enqueue_style(
 			'wp-bootstrap-theme',
-			get_template_directory_uri() .'/dist/wp-admin.min.css',
+			get_template_directory_uri() .'/dist/css/admin.min.css',
 			array(),
-			false
+			( defined( 'WP_DEBUG' ) ? null : filemtime( get_template_directory() . '/dist/css/admin.min.css' ) )
 		);
 	}
 
